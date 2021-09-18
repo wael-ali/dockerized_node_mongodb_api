@@ -1,17 +1,27 @@
 const express = require('express')
 const mongoose = require('mongoose')
+const path = require('path')
 
 const BaseRouter = require('./routers/baseRouter')
 
 const app = express()
 const port = 3000
 
+app.use('/js', express.static(path.join(__dirname, 'frontend', 'dist', 'js')));
+app.use('/css', express.static(path.join(__dirname, 'frontend', 'dist', 'css')));
+app.use('/img', express.static(path.join(__dirname, 'frontend', 'dist', 'img')));
+app.use('/', express.static(path.join(__dirname, 'frontend', 'dist')));
+
 app.use('/api/v1/',BaseRouter)
 // 404 route
+// app.use((req, res, next) => {
+//   next(
+//     new Error("This service is not found")
+//   )
+// })
+
 app.use((req, res, next) => {
-  next(
-    new Error("This service is not found")
-  )
+  return res.sendFile(path.join(__dirname, 'frontend', 'dist', 'index.html'))
 })
 // errors
 app.use((error, req, res, next) => {
