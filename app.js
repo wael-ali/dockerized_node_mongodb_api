@@ -3,6 +3,7 @@ const mongoose = require('mongoose')
 const path = require('path')
 
 const BaseRouter = require('./routers/baseRouter')
+const TodosRouter = require('./routers/TodosRouter')
 
 const app = express()
 const port = 3000
@@ -13,6 +14,7 @@ app.use('/img', express.static(path.join(__dirname, 'frontend', 'dist', 'img')))
 app.use('/', express.static(path.join(__dirname, 'frontend', 'dist')));
 
 app.use('/api/v1/',BaseRouter)
+app.use('/api/v1/',TodosRouter)
 // 404 route
 // app.use((req, res, next) => {
 //   next(
