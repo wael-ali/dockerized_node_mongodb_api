@@ -3,6 +3,7 @@ import VueRouter from 'vue-router'
 import Home from '../views/Home.vue'
 import NotFound from '../views/NotFound.vue'
 import Login from '../components/Login.vue'
+import TodosList from '../components/todos/TodosList.vue'
 
 Vue.use(VueRouter)
 
@@ -24,6 +25,11 @@ const routes = [
     path: '/login',
     name: 'login',
     component: Login
+  },
+  {
+    path: '/todos',
+    name: 'todos',
+    component: TodosList
   },
   { path: '/:pathMatch(.*)*', name: 'not-found', component: NotFound }
 ]
