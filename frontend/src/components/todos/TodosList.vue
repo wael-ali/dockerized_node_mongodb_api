@@ -13,7 +13,7 @@
     <h1>todos list</h1>
     <div>
       <div v-for="(item, index) in todos" :key="index">
-        <div>
+        <div class="bg-green-600">
          <span>{{ item.text }}</span>
          <span><font-awesome-icon icon="check-square" /></span>
          <span><font-awesome-icon icon="trash" /></span>
