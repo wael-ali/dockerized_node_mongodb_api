@@ -6,9 +6,6 @@
       <router-link :to="{ path: 'todos' }">Todos</router-link>
     </div>
     <div class="flex">
-      <div class="bg-green-500 w-36">
-        side bar
-      </div>
       <div class="text-center bg-red-300 min-h-screen w-full">
         <router-view/>
       </div>
