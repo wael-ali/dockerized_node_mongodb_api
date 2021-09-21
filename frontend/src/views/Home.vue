@@ -1,6 +1,6 @@
 <template>
-  <div class="home">
-    <img alt="Vue logo" src="../assets/logo.svg">
+  <div class="text-center">
+    <img alt="logo" src="../assets/logo.svg">
     <HelloWorld msg="Welcome to Your Todos App"/>
     <font-awesome-icon icon="user-secret" />
   </div>

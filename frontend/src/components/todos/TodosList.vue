@@ -1,22 +1,34 @@
 <template>
-  <div>
-    <div>
+  <div class="p-8 bg-gray-100 w-1/2 rounded-md">
+    <div class="mb-8 p-3 rounded bg-gray-300">
       <input v-model="todo"
+        class="p-1 rounded w-4/6"
         type="text"
         name="text"
         id="text"
       >
-      <button @click="addTodoToList()">
+      <button
+        class="p-1 rounded bg-green-600 w-1/6 float-right"
+        @click="addTodoToList()"
+      >
         Add
       </button>
     </div>
-    <h1>todos list</h1>
-    <div>
-      <div v-for="(item, index) in todos" :key="index">
-        <div class="bg-green-600">
-         <span>{{ item.text }}</span>
-         <span><font-awesome-icon icon="check-square" /></span>
-         <span><font-awesome-icon icon="trash" /></span>
+    <h1 class="text-4xl mb-8">todos list</h1>
+    <div class="p-3">
+      <div v-for="(item, index) in todos" :key="index"
+        class="p-1 mb-1 rounded bg-green-400"
+      >
+        <div class="p-1 flex items-center">
+          <!-- <div class="text-xl ml-1"><font-awesome-icon icon="check-square" /></div> -->
+          <div>
+            <input :checked="item.isDone"
+              class="mr-1"
+              type="checkbox"
+            >
+          </div>
+          <div class="flex-grow">{{ item.text }}</div>
+          <div class="text-xl ml-1"><font-awesome-icon icon="trash" /></div>
         </div>
       </div>
     </div>
@@ -30,9 +42,9 @@ export default {
     return {
       todo: this.placeHolder(),
       todos: [
-        { text: 'home work' },
-        { text: 'haus halt' },
-        { text: 'visit granny' }
+        { text: 'home work', isDone: true },
+        { text: 'haus halt', isDone: true },
+        { text: 'visit granny', isDone: false }
       ]
     }
   },
