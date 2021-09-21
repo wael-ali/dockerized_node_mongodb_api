@@ -5,12 +5,12 @@
       <router-link to="/about">About</router-link> |
       <router-link :to="{ path: 'todos' }">Todos</router-link>
     </div>
-    <div class="flex">
-      <div class="text-center bg-red-300 min-h-screen w-full">
+    <div class="">
+      <div class="min-h-screen w-full flex justify-center items-center">
         <router-view/>
       </div>
     </div>
-    <div class="  bg-blue-500">
+    <div class="">
       <div> footer </div>
       <div> footer </div>
       <div> footer </div>
@@ -24,13 +24,13 @@
   -webkit-font-smoothing: antialiased;
   -moz-osx-font-smoothing: grayscale;
   /* text-align: center; */
-  @apply flex flex-col bg-red-500 bg-opacity-50;
+  @apply flex flex-col bg-opacity-50;
   color: #2c3e50;
 }
 
 #nav {
   /* padding: 30px; */
-  @apply p-2 h-10 bg-yellow-300;
+  @apply p-2 h-10 bg-gray-100;
 }
 
 #nav a {
