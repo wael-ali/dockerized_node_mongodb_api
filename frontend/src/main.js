@@ -6,6 +6,9 @@ import { library } from '@fortawesome/fontawesome-svg-core'
 import { faUserSecret, faPlusSquare, faCheckSquare, faTrash } from '@fortawesome/free-solid-svg-icons'
 import { FontAwesomeIcon } from '@fortawesome/vue-fontawesome'
 import './assets/css/index.css'
+import axios from 'axios'
+
+axios.defaults.baseURL = 'http://localhost:3000/api/v1'
 
 library.add(faUserSecret, faPlusSquare, faCheckSquare, faTrash)
 

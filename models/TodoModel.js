@@ -1,7 +1,7 @@
 const mongoose = require('mongoose');
 
 const TodoSechema = new mongoose.Schema({
-  text: String,
+  text: { type: String, required: true },
   isDone: {
     type: Boolean,
     default: false
