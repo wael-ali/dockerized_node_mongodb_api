@@ -36,6 +36,28 @@ export default new Vuex.Store({
     addTodo: async ({ dispatch }, payLoad) => {
       try {
         const response = await axios.post('/todos', { todo: payLoad })
+        if (response.status === 201) {
+          dispatch('getTodos')
+        } else {}
+        console.log('Response:', response)
+      } catch (error) {
+        console.log('Error:', error)
+      }
+    },
+    deletTodo: async ({ dispatch }, id) => {
+      try {
+        const response = await axios.delete(`/todos/${id}`)
+        if (response.status === 200) {
+          dispatch('getTodos')
+        } else {}
+        console.log('Response:', response)
+      } catch (error) {
+        console.log('Error:', error)
+      }
+    },
+    updateTodo: async ({ dispatch }, editedTodo) => {
+      try {
+        const response = await axios.put(`/todos/${editedTodo._id}`, { editedTodo: editedTodo })
         if (response.status === 200) {
           dispatch('getTodos')
         } else {}

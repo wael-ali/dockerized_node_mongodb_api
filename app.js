@@ -43,14 +43,12 @@ app.use('/api/v1/',TodosRouter)
 // handle api not deffined route
 app.use((req, res, next) => {
   const path = req.path
+  const method = req.method
   const apiPath = path.match(/^\/api\//gm)
   if(apiPath) {
-    const error = new Error("This service is not found")
+    const error = new Error(`service is not found::(${path}) with (${method})`)
     error.statusCode = 404
-    next(
-      // new Error(req.path + '---' + apiPath)
-      error
-    )
+    next(error)
   } else {
     next()
   }
@@ -63,8 +61,10 @@ app.use((req, res, next) => {
 app.use((error, req, res, next) => {
   if (error.statusCode) {
     res.status(error.statusCode).json({error: error.message})
+    // res.status(error.statusCode).json({error: error})
   } else {
     res.status(500).json({error: error.message})
+    // res.status(500).json({error})
   }
 })
 

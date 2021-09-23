@@ -24,17 +24,7 @@
       <div v-for="(item, index) in todos" :key="index"
         class="p-1 mb-1 rounded bg-green-400"
       >
-        <div class="p-1 flex items-center">
-          <!-- <div class="text-xl ml-1"><font-awesome-icon icon="check-square" /></div> -->
-          <div>
-            <input :checked="item.isDone"
-              class="mr-1"
-              type="checkbox"
-            >
-          </div>
-          <div class="flex-grow">{{ item.text }}</div>
-          <div class="text-xl ml-1"><font-awesome-icon icon="trash" /></div>
-        </div>
+      <todo :todo="item" />
       </div>
       <div v-if="!todos || todos.length === 0">
           the Todo lis is empty.
@@ -45,10 +35,14 @@
 
 <script>
 
+import Todo from '@/components/todos/Todo.vue'
 import { mapState } from 'vuex'
 
 export default {
   name: 'TodosList',
+  components: {
+    Todo
+  },
   data () {
     return {
       todo: this.placeHolder(),
@@ -59,7 +53,6 @@ export default {
     addTodoToList () {
       if (this.todo !== this.placeHolder()) {
         if (this.todos.find(todo => todo.text === this.todo) === undefined) {
-          // this.$store.commit('ADD_TODO', this.todo)
           this.$store.dispatch('addTodo', this.todo)
           this.todo = this.placeHolder()
         } else {
