@@ -19,5 +19,12 @@ Vue.config.productionTip = false
 new Vue({
   router,
   store,
+  created () {
+    const fakeUser = { name: 'fake_user', email: 'fake.eamil@example.com' }
+    window.localStorage.setItem('todo_user', JSON.stringify(fakeUser))
+    const user = window.localStorage.getItem('todo_user')
+    this.$store.commit('SET_USER', JSON.parse(user))
+    console.log('Vue APP is created', user)
+  },
   render: h => h(App)
 }).$mount('#app')

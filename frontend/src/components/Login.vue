@@ -1,6 +1,6 @@
 <template>
-  <div>
-    <h1>Login Page</h1>
+  <div class="md:w-2/6 ms:w-full p-5 bg-gray-200 rounded">
+    <h1 class="mb-4">Login</h1>
     <div class="form">
       <div class="form-field">
         <input type="email"
@@ -16,7 +16,7 @@
           id="loginPassword"
           placeholder="Password">
       </div>
-      <div class="form-field">
+      <div class="form-field rounded text-center p-1">
         <button @click="submitLogin">Submit</button>
       </div>
     </div>
@@ -45,14 +45,12 @@ export default {
 <!-- Add "scoped" attribute to limit CSS to this component only -->
 <style scoped>
   .form {
-    width: 30%;
-    margin: auto;
-    padding: 2rem;
-    background-color: rgb(240, 245, 245);
-    border-radius: 4px;
+    @apply rounded;
   }
   .form .form-field {
-    margin-bottom: 2rem;
+    @apply mb-4 bg-blue-300;
   }
-
+  .form-field input {
+    @apply w-full p-1;
+  }
 </style>

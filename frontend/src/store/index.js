@@ -6,7 +6,8 @@ Vue.use(Vuex)
 
 export default new Vuex.Store({
   state: {
-    todos: []
+    todos: [],
+    user: null
   },
   mutations: {
     ADD_TODO: (state, payLoad) => {
@@ -17,6 +18,15 @@ export default new Vuex.Store({
     },
     SET_TODOS: (state, payLoad) => {
       state.todos = payLoad
+    },
+    SET_USER: (state, user) => {
+      state.user = user
+    }
+  },
+  getters: {
+    // ...
+    userIsLoggedin: (state) => () => {
+      return state.user !== null
     }
   },
   actions: {
